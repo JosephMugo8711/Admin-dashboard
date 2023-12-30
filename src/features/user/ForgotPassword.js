@@ -1,6 +1,5 @@
 import {useState, useRef} from 'react'
 import {Link} from 'react-router-dom'
-import LandingIntro from './LandingIntro'
 import ErrorText from  '../../components/Typography/ErrorText'
 import InputText from '../../components/Input/InputText'
 import CheckCircleIcon  from '@heroicons/react/24/solid/CheckCircleIcon'
@@ -8,7 +7,7 @@ import CheckCircleIcon  from '@heroicons/react/24/solid/CheckCircleIcon'
 function ForgotPassword(){
 
     const INITIAL_USER_OBJ = {
-        emailId : ""
+        email : ""
     }
 
     const [loading, setLoading] = useState(false)
@@ -20,7 +19,7 @@ function ForgotPassword(){
         e.preventDefault()
         setErrorMessage("")
 
-        if(userObj.emailId.trim() === "")return setErrorMessage("Email Id is required! (use any value)")
+        if(userObj.email.trim() === "")return setErrorMessage("Email Id is required! (use any value)")
         else{
             setLoading(true)
             // Call API to send password reset link
@@ -37,10 +36,7 @@ function ForgotPassword(){
     return(
         <div className="min-h-screen bg-base-200 flex items-center">
             <div className="card mx-auto w-full max-w-5xl  shadow-xl">
-                <div className="grid  md:grid-cols-2 grid-cols-1  bg-base-100 rounded-xl">
-                <div className=''>
-                        <LandingIntro />
-                </div>
+                <div className="grid  md:grid-cols-1 grid-cols-1  bg-base-100 rounded-xl">
                 <div className='py-24 px-10'>
                     <h2 className='text-2xl font-semibold mb-2 text-center'>Forgot Password</h2>
 
@@ -63,7 +59,7 @@ function ForgotPassword(){
 
                                 <div className="mb-4">
 
-                                    <InputText type="emailId" defaultValue={userObj.emailId} updateType="emailId" containerStyle="mt-4" labelTitle="Email Id" updateFormValue={updateFormValue}/>
+                                    <InputText type="emailId" defaultValue={userObj.email} updateType="emailId" containerStyle="mt-4" labelTitle="Email Id" updateFormValue={updateFormValue}/>
 
 
                                 </div>

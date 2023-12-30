@@ -6,7 +6,6 @@ import SuspenseContent from "./SuspenseContent"
 import { useSelector } from 'react-redux'
 import { useEffect, useRef } from "react"
 
-const Page404 = lazy(() => import('../pages/protected/404'))
 
 
 function PageContent(){
@@ -40,9 +39,6 @@ function PageContent(){
                                     )
                                 })
                             }
-
-                            {/* Redirecting unknown url to 404 page */}
-                            <Route path="*" element={<Page404 />} />
                         </Routes>
                 </Suspense>
                 <div className="h-16"></div>
